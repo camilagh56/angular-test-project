@@ -1,0 +1,28 @@
+@use '../../../styles/tokens/index.scss' as *;
+
+.badge {
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+
+  &.approved {
+    background-color: $color-semantic-approved-200;
+    color: $color-semantic-approved-700;
+  }
+
+  &.rejected {
+    background-color: $color-semantic-danger-200;
+    color: $color-semantic-danger-700;
+  }
+
+  &.pending {
+    background-color: $color-semantic-warning-200;
+    color: $color-semantic-warning-700;
+  }
+
+  &.informative {
+    background-color: $color-semantic-informative-200;
+    color: $color-semantic-informative-700;
+  }
+}
