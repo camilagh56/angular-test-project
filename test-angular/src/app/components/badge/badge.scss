@@ -1,17 +1,14 @@
 @use '../../../styles/tokens/index.scss' as *;
 
 .badge {
+  cursor: default;
   display: inline-flex;
   align-items: center;
+  width: fit-content;
   font-family: $font-family-primary;
   font-weight: $font-weight-medium;
-  cursor: default;
-  padding: $padding-large;
   border-radius: $border-radius-badge;
-  gap: $gap-large;
-  height: $height-border-icon-large;
-  width: fit-content;
-  
+
   &.info {
     background-color: $color-semantic-informative-200;
     color: $color-semantic-informative-700;
@@ -32,25 +29,85 @@
     color: $color-semantic-danger-700;
   }
 
+  &.primary {
+    background-color: $color-gray-gray-500;
+    color: $color-gray-gray-800;
+  }
+
+  // ====== VARIANTS OF SIZE ======
+
+  &.large {
+    padding: $padding-large;
+    font-size: $font-size-large;
+    gap: $gap-large;
+
+    .container-icon {
+      width: $width-border-icon-large;
+      height: $height-border-icon-large;
+    }
+
+    .icon {
+      font-size: $font-size-icon-large;
+      width: $width-icon-large;
+      height: $height-icon-large;
+    }
+  }
+
+  &.medium {
+    padding: $padding-medium;
+    font-size: $font-size-medium;
+    gap: $gap-medium;
+
+    .container-icon {
+      width: $width-border-icon-medium;
+      height: $height-border-icon-medium;
+    }
+
+    .icon {
+      font-size: $font-size-icon-medium;
+      width: $width-icon-medium;
+      height: $height-icon-medium;
+    }
+  }
+
+  &.small {
+    padding: $padding-small;
+    font-size: $font-size-small;
+    gap: $gap-small;
+
+    .container-icon {
+      width: $width-border-icon-small;
+      height: $height-border-icon-small;
+    }
+
+    .icon {
+      font-size: $font-size-icon-small;
+      width: $width-icon-small;
+      height: $height-icon-small;
+    }
+  }
+
+  &.center-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .label {
+      margin: 0 auto;
+    }
+  }
+
   .container-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: currentColor;
     border-radius: $border-radius-width-icon;
-    width: $width-border-icon-large;
-    height: $height-border-icon-large;
 
-  // size icon large
     .icon {
-      width: 16.76px;
-      height: 16.76px;
-      font-size: 16.76px;
-      color: white;
+      color: $color-icon;
     }
   }
-
-  // CHIP STYLING
 
   .close-btn {
     background: transparent;

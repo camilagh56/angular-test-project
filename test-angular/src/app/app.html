@@ -1,15 +1,22 @@
-<span class="title-large" >Large</span>
-<div class="variants">
-  <ng-container *ngFor="let state of statesTags">
+<div class="container-titles">
+  <div class="size-group" *ngFor="let size of sizes">
+    <span class="title">{{ size | titlecase }}</span>
+    <div class="variants">
+      <ng-container *ngFor="let state of statesTagsVariants">
     <app-badge
       [ngClass]="{
         'badge': true,
-        'chip': state.type === 'chip'
+        'chip': state.type === 'chip',
+        'center-text': !state.icon
           }"
+      *ngIf="state.size === size"
       [type]="state.type"
       [color]="state.color"
       [icon]="state.icon"
       [label]="state.label"
+      [size]="state.size || 'large'"
     ></app-badge>
-  </ng-container>
+      </ng-container>
+    </div>
+  </div>
 </div>

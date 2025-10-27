@@ -5,6 +5,12 @@
     gap: 15px;
 }
 
-.title-large{
+.title{
     font-weight: 500;
+}
+
+.container-titles {
+    display: flex;
+    flex-direction: row;
+    gap: 300px;
 }

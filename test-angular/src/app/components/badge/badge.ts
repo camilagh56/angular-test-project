@@ -17,6 +17,8 @@ export class Badge {
   @Input() color: 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'primary';
   @Input() icon?: string;
   @Input() label: string = 'Etiqueta';
+  @Input() size: 'small' | 'medium' | 'large' = 'large';
+
   protected showButtonClose = signal(true)
   protected readonly statesTags = STATES_TAGS;
 
@@ -25,7 +27,7 @@ export class Badge {
   handleClose(event: MouseEvent) {
     event.stopPropagation();
     this.onClose.emit();
-    this.showButtonClose.set(false)
+    this.showButtonClose.set(false);
   }
 
 }

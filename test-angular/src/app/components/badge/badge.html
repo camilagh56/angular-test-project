@@ -8,7 +8,10 @@
     'info': color === 'info',
     'chip': type === 'chip', 
     'tag': type === 'tag',
-    'without-close': !showButtonClose()
+    'without-close': !showButtonClose(),
+    'large': size === 'large', 
+    'medium': size === 'medium',
+    'small': size === 'small'
   }"
   [attr.role]="type === 'chip' ? 'button' : null"
   [attr.tabindex]="type === 'chip' ? 0 : null"
