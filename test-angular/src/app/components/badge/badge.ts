@@ -1,27 +1,31 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { STATES_TAGS } from '../../constants/tags';
 import { NgClass } from '@angular/common';
+import { NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-badge',
-  imports: [NgClass],
+  standalone: true,
+  imports: [NgClass, MatIconModule, NgIf],
   templateUrl: './badge.html',
   styleUrls: ['./badge.scss']
 })
 
 export class Badge {
-  protected index = signal(0);
-  protected mode = signal<'tag' | 'chip'>('chip');
+  @Input() type: 'tag' | 'chip' = 'tag';
+  @Input() color: 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'primary';
+  @Input() icon?: string;
+  @Input() label: string = 'Etiqueta';
+  protected showButtonClose = signal(true)
   protected readonly statesTags = STATES_TAGS;
-  
 
-  get initialState() {
-    return this.statesTags[this.index()]
-  }
+  @Output() onClose = new EventEmitter<void>();
 
- nextState() {
-    const nextIndex = (this.index() + 1) % this.statesTags.length;
-    this.index.set(nextIndex);
+  handleClose(event: MouseEvent) {
+    event.stopPropagation();
+    this.onClose.emit();
+    this.showButtonClose.set(false)
   }
 
 }

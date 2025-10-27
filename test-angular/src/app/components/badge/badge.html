@@ -1,8 +1,28 @@
 <span 
   class="badge"
-  [ngClass]="[mode(), initialState.type]"
-  (click)="nextState()"
-
+  [ngClass]="{
+    'primary': color === 'primary',
+    'success': color === 'success', 
+    'warning': color === 'warning',
+    'danger': color === 'danger',
+    'info': color === 'info',
+    'chip': type === 'chip', 
+    'tag': type === 'tag',
+    'without-close': !showButtonClose()
+  }"
+  [attr.role]="type === 'chip' ? 'button' : null"
+  [attr.tabindex]="type === 'chip' ? 0 : null"
 >
-  {{ initialState.label }}
+  <span class="container-icon" *ngIf="icon">
+    <mat-icon class="icon">{{ icon }}</mat-icon>
+  </span>
+
+  <span class="label">{{ label }}</span>
+  <button 
+    *ngIf="type === 'chip' && showButtonClose()"
+    class="close-btn"
+    (click)="handleClose($event)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
 </span>

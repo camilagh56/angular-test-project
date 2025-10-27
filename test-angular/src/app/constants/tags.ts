@@ -1,28 +1,44 @@
 export interface StateTag {
   id: string;
   label: string;
-  type: 'approved' | 'rejected' | 'pending' | 'informative';
+  color: 'primary' | 'success' | 'warning' | 'danger' | 'info';
+  type: 'tag' | 'chip';
+  icon?: string;
 }
 
 export const STATES_TAGS: StateTag[] = [
   { 
-    id: 'approved', 
+    id: 'approved',
+    color: 'success',
     label: 'Aprobado',
-    type: 'approved'
+    type: 'tag',
+    icon: 'check_circle'
   },
   { 
     id: 'rejected', 
     label: 'Rechazado',
-    type: 'rejected'
+    color: 'danger',
+    icon: 'do_not_disturb_on',
+    type: 'tag'
   },
   { 
     id: 'pending', 
     label: 'Pendiente',
-    type: 'pending'
+    color: 'warning',
+    type: 'tag',
+    icon: 'schedule'
   },
   { 
     id: 'informative', 
     label: 'Informativo',
-    type: 'informative'
+    color: 'info',
+    type: 'tag', 
+    icon: 'info'
+  },
+  {
+    id: 'default',
+    label: 'Default',
+    color: 'primary',
+    type: 'chip',
   }
 ];

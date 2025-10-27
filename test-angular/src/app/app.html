@@ -1,1 +1,15 @@
-<app-badge></app-badge>
+<span class="title-large" >Large</span>
+<div class="variants">
+  <ng-container *ngFor="let state of statesTags">
+    <app-badge
+      [ngClass]="{
+        'badge': true,
+        'chip': state.type === 'chip'
+          }"
+      [type]="state.type"
+      [color]="state.color"
+      [icon]="state.icon"
+      [label]="state.label"
+    ></app-badge>
+  </ng-container>
+</div>
