@@ -1,7 +1,7 @@
 export interface StateTag {
   id: string;
   label: string;
-  color: 'primary' | 'success' | 'warning' | 'danger' | 'info';
+  color: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'primary-chip';
   type: 'tag' | 'chip';
   icon?: string;
   size?: 'small' | 'medium' | 'large';
@@ -41,11 +41,12 @@ export const STATES_TAGS: StateTag[] = [
     label: 'Default',
     color: 'primary',
     type: 'tag',
+    icon: ''
   },
- /* {
+  {
     id: 'default',
     label: 'Default',
-    color: 'primary',
+    color: 'primary-chip',
     type: 'chip',
-  },*/
+  },
 ];

@@ -34,7 +34,36 @@
     color: $color-gray-gray-800;
   }
 
-  // ====== VARIANTS OF SIZE ======
+  &.chip {
+    cursor: pointer;
+    border-radius: $border-radius-badge-chip;
+    background-color: $color-gray-gray-200;
+    color: $color-gray-gray-900;
+    height: $height-chip;
+    gap: $gap-chip;
+
+    .label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      text-align: center;
+    }
+
+    &.large {
+      width: $width-chip-closeable;
+      height: $height-chip;
+      gap: $gap-chip;
+      padding: $padding-small;
+    }
+
+    &.without-close {
+      width: $width-chip-without-close;
+    }
+
+} 
+
+  // VARIANTS OF SIZE
 
   &.large {
     padding: $padding-large;
@@ -87,16 +116,6 @@
     }
   }
 
-  &.center-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .label {
-      margin: 0 auto;
-    }
-  }
-
   .container-icon {
     display: flex;
     align-items: center;
@@ -128,16 +147,16 @@
   }
 }
 
-.chip {
-  cursor: pointer;
-  border-radius: $border-radius-badge-chip;
-  background-color: $color-gray-gray-200;
-  color: $color-gray-gray-900;
-  width: $width-chip;
-  height: $height-chip;
-  gap: $gap-chip;
 
-  &.without-close {
-    width: $width-chip-without-close;
+.badge.center-text {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 }

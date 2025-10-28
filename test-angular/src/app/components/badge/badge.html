@@ -6,17 +6,19 @@
     'warning': color === 'warning',
     'danger': color === 'danger',
     'info': color === 'info',
+    'primary-chip': color === 'primary-chip',
     'chip': type === 'chip', 
     'tag': type === 'tag',
     'without-close': !showButtonClose(),
     'large': size === 'large', 
     'medium': size === 'medium',
-    'small': size === 'small'
+    'small': size === 'small',
+    'center-text': !hasIcon
   }"
   [attr.role]="type === 'chip' ? 'button' : null"
   [attr.tabindex]="type === 'chip' ? 0 : null"
 >
-  <span class="container-icon" *ngIf="icon">
+  <span class="container-icon" *ngIf="hasIcon">
     <mat-icon class="icon">{{ icon }}</mat-icon>
   </span>
 
